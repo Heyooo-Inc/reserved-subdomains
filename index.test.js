@@ -21,4 +21,9 @@ describe('ReservedSubdomains', () => {
     const invalid = "server123";
     expect(ReservedSubdomains.isValid(invalid)).toBe(false);
   })
+
+  it('validates against badwords', () => {
+    const invalid = "wank-lo";
+    expect(ReservedSubdomains.isValid(invalid)).toBe(false);
+  })
 })
