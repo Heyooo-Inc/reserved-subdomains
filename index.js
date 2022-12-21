@@ -1,6 +1,5 @@
 'use strict';
 const Names = require('./names.json');
-const Patterns = require('./patterns.json');
 const Badwords = require('./badwords.json');
 
 const namesMap = Names.reduce((accumulator, name) => {
@@ -24,14 +23,6 @@ class ReservedSubdomains {
     static isValid(name) {
         if (namesMap.hasOwnProperty(name)) {
             return false;
-        }
-
-        for (let i = 0; i < patternsRegex.length; ++i) {
-            const regex = patternsRegex[i];
-
-            if (regex.test(name)) {
-                return false;
-            }
         }
 
         for (let i = 0; i < badwordsRegex.length; ++i) {
