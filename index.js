@@ -7,10 +7,6 @@ const namesMap = Names.reduce((accumulator, name) => {
     return accumulator;
 }, {});
 
-const patternsRegex = Patterns.map((pattern) => {
-    return new RegExp(pattern);
-});
-
 const badwordsRegex = Badwords.map((badword) => {
     return new RegExp(`\\b${badword.replace(/(\W)/g, '\\$1')}\\b`, 'gi')
 });
