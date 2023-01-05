@@ -34,8 +34,8 @@ class ReservedSubdomains {
             }
         }
 
-        for (let i = 0; i < badwordsRegex.length; ++i) {
-            const regex = badwordsRegex[i];
+        for (let k = 0; k < badwordsRegex.length; ++k) {
+            const regex = badwordsRegex[k];
 
             if (regex.test(name)) {
                 return false;
