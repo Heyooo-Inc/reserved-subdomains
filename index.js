@@ -2,6 +2,7 @@
 const Names = require('./names.json');
 const Patterns = require('./patterns.json');
 const Badwords = require('./badwords.json');
+const Webwords = require('./web.json');
 
 const namesMap = Names.reduce((accumulator, name) => {
     accumulator[name] = true;
@@ -38,6 +39,21 @@ class ReservedSubdomains {
             const regex = badwordsRegex[k];
 
             if (regex.test(name)) {
+                return false;
+            }
+        }
+
+        for (let k = 0; k < Webwords.length; ++k) {
+            const word = Webwords[k];
+            const word2 = word.replace(/-/, '');
+            const lowerName = name.replace(/-/g, '').toLowerCase();
+
+            if (
+                word === lowerName || 
+                word2 === lowerName || 
+                `${word}s` === lowerName || 
+                `${word2}s` === lowerName
+            ) {
                 return false;
             }
         }

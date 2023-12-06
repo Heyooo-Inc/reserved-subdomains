@@ -30,4 +30,12 @@ describe('ReservedSubdomains', () => {
     const invalid = "wank-lo";
     expect(ReservedSubdomains.isValid(invalid)).toBe(false);
   })
+
+  it('validates against webwords', () => {
+    const invalid = "pro-duct";
+    const valid = "jimlam";
+
+    expect(ReservedSubdomains.isValid(invalid)).toBe(false);
+    expect(ReservedSubdomains.isValid(valid)).toBe(true);
+  })
 })
